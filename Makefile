@@ -6,10 +6,9 @@
 #    By: rbulanad <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 09:57:05 by rbulanad          #+#    #+#              #
-#    Updated: 2022/11/29 14:42:30 by rbulanad         ###   ########.fr        #
+#    Updated: 2022/11/30 10:18:26 by rbulanad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-/*.INCLUDE .IGNORE : <libft/Makefile>*/
 NAME	= libftprintf.a
 SOURCES	= ft_printf.c \
 		  ft_printf_func.c
