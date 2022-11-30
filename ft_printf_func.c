@@ -6,9 +6,11 @@
 /*   By: rbulanad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 12:20:58 by rbulanad          #+#    #+#             */
-/*   Updated: 2022/11/29 14:37:31 by rbulanad         ###   ########.fr       */
+/*   Updated: 2022/11/30 17:25:09 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {
@@ -57,7 +59,50 @@ int	ft_putnbr(int n)
 	return (j);
 }
 
-int	hexa(unsigned long i, int upper, int ptr)
+int	ft_putnbr2(unsigned int n)
+{
+	int	j;
+
+	j = 0;	
+	if (n <= 9)
+	{
+		ft_putchar(n + '0');
+		j++;
+	}
+	else
+	{
+		j += ft_putnbr(n / 10);
+		j += ft_putnbr(n % 10);
+	}
+	return (j);
+}
+
+int	hexa(unsigned int i, int upper, int ptr)
+{
+	int	j;
+	char *base1;
+
+	j = 0;
+	base1 = "0123456789abcdef";
+	if (upper)
+		base1 = "0123456789ABCDEF";
+	if (ptr)
+	{
+		ft_putstr("0x");
+		ptr -= ptr;
+		j += 2;
+	}
+	if (i >= 16)
+	{
+		j += hexa(i / 16, upper, 0);
+		j += hexa(i % 16, upper, 0);
+	}
+	if (i < 16)
+		j += ft_putchar(base1[i]);
+	return (j);
+}
+
+int	hexa2(unsigned long i, int upper, int ptr)
 {
 	int	j;
 	char *base1;

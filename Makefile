@@ -6,7 +6,7 @@
 #    By: rbulanad <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 09:57:05 by rbulanad          #+#    #+#              #
-#    Updated: 2022/11/30 10:18:26 by rbulanad         ###   ########.fr        #
+#    Updated: 2022/11/30 15:05:21 by rbulanad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME	= libftprintf.a
@@ -18,7 +18,7 @@ CC		= gcc
 CFLAGS 	= -Wall -Werror -Wextra
 
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c =.o}
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJECTS}
 	ar rc ${NAME} ${OBJECTS}
