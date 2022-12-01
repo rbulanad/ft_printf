@@ -6,7 +6,7 @@
 /*   By: rbulanad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 12:20:58 by rbulanad          #+#    #+#             */
-/*   Updated: 2022/11/30 17:25:09 by rbulanad         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:31:48 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	hexa(unsigned int i, int upper, int ptr)
 	return (j);
 }
 
-int	hexa2(unsigned long i, int upper, int ptr)
+int	hexa2(unsigned long long i, int upper, int ptr)
 {
 	int	j;
 	char *base1;
@@ -119,8 +119,8 @@ int	hexa2(unsigned long i, int upper, int ptr)
 	}
 	if (i >= 16)
 	{
-		j += hexa(i / 16, upper, 0);
-		j += hexa(i % 16, upper, 0);
+		j += hexa2(i / 16, upper, 0);
+		j += hexa2(i % 16, upper, 0);
 	}
 	if (i < 16)
 		j += ft_putchar(base1[i]);

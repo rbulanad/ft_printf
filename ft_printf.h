@@ -6,7 +6,7 @@
 /*   By: rbulanad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 12:25:46 by rbulanad          #+#    #+#             */
-/*   Updated: 2022/11/30 16:43:21 by rbulanad         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:00:31 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	ft_putstr(char *s);
 int	ft_putnbr(int n);
 int	ft_putnbr2(unsigned int n);
 int	hexa(unsigned int i, int upper, int ptr);
-int	hexa2(unsigned long i, int upper, int ptr);
+int	hexa2(unsigned long long i, int upper, int ptr);
 
 #endif

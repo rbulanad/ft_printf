@@ -6,7 +6,7 @@
 /*   By: rbulanad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 11:00:16 by rbulanad          #+#    #+#             */
-/*   Updated: 2022/11/30 17:21:12 by rbulanad         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:30:45 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check(va_list args, char format)
 	if (format == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	if (format == 'p')
-		return (hexa2(va_arg(args, unsigned long), 0, 1));
+		return (hexa2(va_arg(args, unsigned long long), 0, 1));
 	if (format == 'x')
 		return (hexa(va_arg(args, unsigned int), 0, 0));
 	if (format == 'X')
@@ -60,13 +60,14 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 	}
+	va_end(args);
 	return (count);
 }
-
+/*
 #include <stdio.h>
 #include <limits.h>
 int main()
 {
-	//printf("\n%d", printf(" %p %p ", LONG_MIN, LONG_MAX));
-	ft_printf("\n%d", ft_printf(" %p %p ", LONG_MIN, LONG_MAX));
-}
+	//printf("\n%d", printf("%p", 123456789123));
+	ft_printf("\n%d", ft_printf("%p", 123456789123));
+}*/
