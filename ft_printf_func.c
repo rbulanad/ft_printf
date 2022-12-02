@@ -6,7 +6,7 @@
 /*   By: rbulanad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 12:20:58 by rbulanad          #+#    #+#             */
-/*   Updated: 2022/12/01 16:31:48 by rbulanad         ###   ########.fr       */
+/*   Updated: 2022/12/02 11:21:38 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	ft_putnbr2(unsigned int n)
 {
 	int	j;
 
-	j = 0;	
+	j = 0;
 	if (n <= 9)
 	{
 		ft_putchar(n + '0');
@@ -71,58 +71,8 @@ int	ft_putnbr2(unsigned int n)
 	}
 	else
 	{
-		j += ft_putnbr(n / 10);
-		j += ft_putnbr(n % 10);
+		j += ft_putnbr2(n / 10);
+		j += ft_putnbr2(n % 10);
 	}
-	return (j);
-}
-
-int	hexa(unsigned int i, int upper, int ptr)
-{
-	int	j;
-	char *base1;
-
-	j = 0;
-	base1 = "0123456789abcdef";
-	if (upper)
-		base1 = "0123456789ABCDEF";
-	if (ptr)
-	{
-		ft_putstr("0x");
-		ptr -= ptr;
-		j += 2;
-	}
-	if (i >= 16)
-	{
-		j += hexa(i / 16, upper, 0);
-		j += hexa(i % 16, upper, 0);
-	}
-	if (i < 16)
-		j += ft_putchar(base1[i]);
-	return (j);
-}
-
-int	hexa2(unsigned long long i, int upper, int ptr)
-{
-	int	j;
-	char *base1;
-
-	j = 0;
-	base1 = "0123456789abcdef";
-	if (upper)
-		base1 = "0123456789ABCDEF";
-	if (ptr)
-	{
-		ft_putstr("0x");
-		ptr -= ptr;
-		j += 2;
-	}
-	if (i >= 16)
-	{
-		j += hexa2(i / 16, upper, 0);
-		j += hexa2(i % 16, upper, 0);
-	}
-	if (i < 16)
-		j += ft_putchar(base1[i]);
 	return (j);
 }

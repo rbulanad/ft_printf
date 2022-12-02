@@ -6,10 +6,9 @@
 /*   By: rbulanad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 11:00:16 by rbulanad          #+#    #+#             */
-/*   Updated: 2022/12/01 16:30:45 by rbulanad         ###   ########.fr       */
+/*   Updated: 2022/12/02 11:22:05 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "ft_printf.h"
 
 int	check(va_list args, char format)
@@ -19,7 +18,7 @@ int	check(va_list args, char format)
 	if (format == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	if (format == 'p')
-		return (hexa2(va_arg(args, unsigned long long), 0, 1));
+		return (hexa_p(va_arg(args, unsigned long long), 0, 1));
 	if (format == 'x')
 		return (hexa(va_arg(args, unsigned int), 0, 0));
 	if (format == 'X')
@@ -36,25 +35,22 @@ int	check(va_list args, char format)
 
 int	ft_printf(const char *str, ...)
 {
-	int	i;
-	int	count;
-	va_list args;
+	int		i;
+	int		count;
+	va_list	args;
 
 	i = 0;
 	count = 0;
 	va_start(args, str);
 	while (str[i])
 	{
-		if (str[i] == '%')
+		if (str[i] == '%' && str[i + 1])
 		{
-			if (str[i + 1])
-			{
-				i++;
-				count += check(args, str[i]);
-				i++;
-			}
+			i++;
+			count += check(args, str[i]);
+			i++;
 		}
-		else
+		else if (str[i] != '%')
 		{
 			count += ft_putchar(str[i]);
 			i++;
@@ -68,6 +64,6 @@ int	ft_printf(const char *str, ...)
 #include <limits.h>
 int main()
 {
-	//printf("\n%d", printf("%p", 123456789123));
-	ft_printf("\n%d", ft_printf("%p", 123456789123));
+	printf("\n%d", printf("%s","\001\002\007\v\010\f\r\n"));
+	ft_printf("\n%d", printf("%s","\001\002\007\v\010\f\r\n"));
 }*/
